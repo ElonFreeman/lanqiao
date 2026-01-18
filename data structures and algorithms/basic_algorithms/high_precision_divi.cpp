@@ -2,25 +2,8 @@ using namespace std;
 #include<iostream>
 #define N 1000
 
-void add(int *A,int *B,int *C,int lc)
-{
-    for(int i=0;i<lc;i++)
-    {
-        C[i]+=A[i]+B[i];//累加
-        C[i+1]=C[i]/10;//进位
-        C[i]%=10;//存余
-    }
-
-    //处理最高位
-    if(C[lc])
-    {
-        lc++;
-    }
-}
-
 int main()
 {
-    void add(int*,int*,int*,int);
     
     int A[N]={},B[N]={},C[N]={},la,lb,lc;
     string a="9876543210123456789",b="12345678909876543";
@@ -38,13 +21,12 @@ int main()
     {
         B[lb-1-i]=b[i]-'0';
     }
-    
-    add(A,B,C,lc);
 
     for(int i=lc;i>=0;i--)
     {
         cout << C[i];
     }
     cout << endl;
+    
     return 0;
 }
