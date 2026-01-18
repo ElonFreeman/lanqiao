@@ -1,60 +1,56 @@
-//双向链表
+//在中间删除节点
 
 using namespace std;
 #include<iostream>
 
-//构建节点结构体
 struct node
 {
     int data;
     node *next;
 };
 
-//构建头指针结构体
-struct headpointer
-{
-    node *head;
-};
-
 int main()
 {
-    //定义并初始化头指针
-    struct headpointer hp,tp;
-    hp.head=tp.head=nullptr;
+    node *head=nullptr;
 
-    //定义一号节点
-    struct node *node1;
+    node *node1=new node;
     node1->data=10;
-    node1->next=nullptr;
+    head=node1;
 
-    //定义二号节点
-    struct node *node2;
+    node *node2=new node;
     node2->data=20;
-    node2->next=nullptr;
-    
-    //定义三号节点
-    struct node *node3;
-    node3->data=20;
-    node3->next=nullptr;
-    
-    //定义四号节点
-    struct node *node4;
-    node4->data=20;
-    node4->next=nullptr;
-    
-   //正向链接
-    hp.head=node1;
     node1->next=node2;
-    node2->next=node3;
-    node3->next=node4;
-    node4->next=nullptr;
 
-    //反向链接
-    tp.head=node4;
-    node4->next=node3;
-    node3->next=node2;
-    node2->next=node1;
-    node1->next=nullptr;
+    node *node3=new node;
+    node3->data=30;
+    node2->next=node3;
+
+    node *node4=new node;//
+    node4->data=40;
+    node3->next=node4;
+
+    node *node5=new node;
+    node5->data=50;
+    node4->next=node5;
+
+    node *node6=new node;
+    node6->data=60;
+    node5->next=node6;
+    
+    // 删除node4
+    node3->next=node5;
+    node4->next=nullptr;
+    delete node4;
+
+    //遍历访问链表，并输出每个节点的数据域与指针域
+    node *current=head;
+    while(current!=nullptr)
+    {
+        cout << current->data << endl;
+        cout << current->next << endl;
+        current=current->next;
+    }
+    cout << endl;
 
     return 0;
 }

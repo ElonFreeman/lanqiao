@@ -2,8 +2,14 @@ using namespace std;
 #include<iostream>
 #define N 1000
 
+void divi()
+{
+
+}
+
 int main()
 {
+    void divi();
     
     int A[N]={},B[N]={},C[N]={},la,lb,lc;
     string a="9876543210123456789",b="12345678909876543";
