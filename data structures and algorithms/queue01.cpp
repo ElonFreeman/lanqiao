@@ -44,6 +44,7 @@ int main()
         delete temp;
     }
 
+    //output
     if(head==nullptr)
     {
         cout << "null" << endl;
@@ -59,7 +60,6 @@ int main()
         }
         cout << endl;
     }
-
 
     return 0;
 }
