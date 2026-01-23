@@ -8,28 +8,6 @@ struct treenode
     treenode *nextsibling;
 };
 
-void traverse(treenode *rootnode)
-{
-    treenode *child=rootnode,*sibling=nullptr,*parent=nullptr;
-
-    cout << rootnode->data << endl;
-    while(child->firstchild!=nullptr)
-    {
-        child=child->firstchild;
-        sibling=parent=child;
-        cout << child->data << " ";
-
-        if(sibling->nextsibling!=nullptr)
-        {
-            sibling=sibling->nextsibling;
-            cout << sibling->data << " ";
-        }
-
-        cout << endl;
-    }
-}
-
-
 int main()
 {
     void traverse(treenode *);
@@ -41,36 +19,6 @@ int main()
              *n10=new treenode{10,nullptr,nullptr},*n11=new treenode{11,nullptr,nullptr},*n12=new treenode{12,nullptr,nullptr},
              *n13=new treenode{13,nullptr,nullptr},*n14=new treenode{14,nullptr,nullptr},*n15=new treenode{15,nullptr,nullptr},
              *n16=new treenode{16,nullptr,nullptr},*n17=new treenode{17,nullptr,nullptr},*n18=new treenode{18,nullptr,nullptr};
-
-    //1
-    //rootnode=n1;
-
-    //2
-    n1->firstchild=n2;
-    n2->nextsibling=n3,n3->nextsibling=n4,n4->nextsibling=n5;
-
-    //3
-    n2->firstchild=n6;
-    n6->nextsibling=n7,n7->nextsibling=n8;
-
-    n3->firstchild=n9;
-    n9->nextsibling=n10,n10->nextsibling=n11;
-
-    n4->firstchild=n12;
-    n12->nextsibling=n13;
-
-    //4
-    n6->firstchild=n14;
-    n14->nextsibling=n15;
-
-    n7->firstchild=n16;
-
-    n8->firstchild=n17;
-
-    n12->firstchild=n18;
-
-    
-    traverse(n1);
 
     return 0;
 }
