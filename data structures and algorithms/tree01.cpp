@@ -10,22 +10,18 @@ struct treenode
 
 void traverse(treenode *rootnode)
 {
-    treenode *child=rootnode,*sibling=nullptr,*parent=nullptr;
-
-    cout << rootnode->data << endl;
-    while(child->firstchild!=nullptr)
+    if(rootnode==nullptr)
     {
-        child=child->firstchild;
-        sibling=parent=child;
-        cout << child->data << " ";
+        return;
+    }
+    
+    cout << rootnode->data << " ";
+    treenode *child=rootnode->firstchild;
 
-        if(sibling->nextsibling!=nullptr)
-        {
-            sibling=sibling->nextsibling;
-            cout << sibling->data << " ";
-        }
-
-        cout << endl;
+    while(child!=nullptr)
+    {
+        traverse(child);
+        child=child->nextsibling;
     }
 }
 
