@@ -44,7 +44,7 @@ int main()
         delete temp;
     }
 
-    //output
+    //output 
     if(head==nullptr)
     {
         cout << "null" << endl;

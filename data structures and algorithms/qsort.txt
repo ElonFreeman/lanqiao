@@ -1,0 +1,22 @@
+// 伪代码展示 qsort 如何工作
+void qsort_impl(void* base, size_t n, size_t size, 
+                int (*cmp)(const void*, const void*)) {
+    
+    // 1. 选择基准元素（pivot）
+    void* pivot = base + (n/2) * size;
+    
+    // 2. 分区：重新排列数组，使：
+    //    - 所有小于 pivot 的元素在左边
+    //    - 所有大于 pivot 的元素在右边
+    for (int i = 0; i < n; i++) {
+        void* elem = base + i * size;
+        if (cmp(elem, pivot) < 0) {
+            // 如果元素 < pivot，放到左边分区
+            // 这里会进行交换
+        }
+    }
+    
+    // 3. 递归排序左右分区
+    // qsort_impl(左边分区);
+    // qsort_impl(右边分区);
+}

@@ -18,17 +18,11 @@ void add(int *A,int *B,int *C,int lc)
     }
 }
 
-int main()
+int transf(int *A,int *B,string a,string b)
 {
-    void add(int*,int*,int*,int);
-    
-    int A[N]={},B[N]={},C[N]={},la,lb,lc;
-    string a="9876543210123456789",b="12345678909876543";
-    cin >> a >> b;
-
+    int la,lb,lc;
     //获取数位信息
     la=size(a),lb=size(b),lc=max(la,lb);
-
     //逆序输入
     for(int i=la-1;i>=0;i--)
     {
@@ -38,6 +32,20 @@ int main()
     {
         B[lb-1-i]=b[i]-'0';
     }
+
+    return lc;
+}
+
+int main()
+{
+    void add(int*,int*,int*,int);
+    void trans(int*,int*,string,string);
+    
+    int A[N]={},B[N]={},C[N]={},lc;
+    string a="9876543210123456789",b="12345678909876543";
+    cin >> a >> b;
+
+    lc=transf(A,B,a,b);
     
     add(A,B,C,lc);
 
@@ -46,5 +54,6 @@ int main()
         cout << C[i];
     }
     cout << endl;
+    
     return 0;
 }

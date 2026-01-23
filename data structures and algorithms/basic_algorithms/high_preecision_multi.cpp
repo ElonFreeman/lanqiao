@@ -39,7 +39,7 @@ int main()
     multi(A,B,C,lc);
 
     //输出
-     while(lc&&*(C+lc)==0)//去除前面的空零
+    while(lc&&*(C+lc)==0)//去除前面的空零
     {
         lc--;
     }

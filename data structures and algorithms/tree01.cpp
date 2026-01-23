@@ -1,0 +1,85 @@
+using namespace std;
+#include<iostream>
+
+struct treenode
+{
+    int data;
+    treenode *firstchild;
+    treenode *nextsibling;
+};
+
+void traverse(treenode *rootnode)
+{
+    //traverse
+    treenode *current0=rootnode,*current1=rootnode;
+    while(current0->firstchild!=nullptr)
+    {
+        current0=current0->firstchild;
+        cout << current0->data << " ";
+        current1=current0;
+
+        if(current0->nextsibling!=nullptr)
+        {
+            while(current1->nextsibling!=nullptr)
+            {
+                current1=current1->nextsibling;
+                cout << current1->data << " ";
+
+                if(current1->firstchild!=nullptr)
+                {
+                    traverse(current1);
+                }
+            }
+
+            current1=current0;
+        }
+
+        cout << endl;       
+    }
+}
+
+
+int main()
+{
+    void traverse(treenode *);
+
+    treenode *rootnode=nullptr;
+    treenode *n1=new treenode{1,nullptr,nullptr},*n2=new treenode{2,nullptr,nullptr},*n3=new treenode{3,nullptr,nullptr},
+             *n4=new treenode{4,nullptr,nullptr},*n5=new treenode{5,nullptr,nullptr},*n6=new treenode{6,nullptr,nullptr},
+             *n7=new treenode{7,nullptr,nullptr},*n8=new treenode{8,nullptr,nullptr},*n9=new treenode{9,nullptr,nullptr},
+             *n10=new treenode{10,nullptr,nullptr},*n11=new treenode{11,nullptr,nullptr},*n12=new treenode{12,nullptr,nullptr},
+             *n13=new treenode{13,nullptr,nullptr},*n14=new treenode{14,nullptr,nullptr},*n15=new treenode{15,nullptr,nullptr},
+             *n16=new treenode{16,nullptr,nullptr},*n17=new treenode{17,nullptr,nullptr},*n18=new treenode{18,nullptr,nullptr};
+
+    //1
+    rootnode=n1;
+
+    //2
+    n1->firstchild=n2;
+    n2->nextsibling=n3,n3->nextsibling=n4,n4->nextsibling=n5;
+
+    //3
+    n2->firstchild=n6;
+    n6->nextsibling=n7,n7->nextsibling=n8;
+
+    n3->firstchild=n9;
+    n9->nextsibling=n10,n10->nextsibling=n11;
+
+    n4->firstchild=n12;
+    n12->nextsibling=n13;
+
+    //4
+    n6->firstchild=n14;
+    n14->nextsibling=n15;
+
+    n7->firstchild=n16;
+
+    n8->firstchild=n17;
+
+    n12->firstchild=n18;
+
+    
+    traverse(rootnode);
+
+    return 0;
+}
