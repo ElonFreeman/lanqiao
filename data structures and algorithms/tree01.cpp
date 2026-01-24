@@ -1,5 +1,6 @@
 using namespace std;
 #include<iostream>
+#include<ctime>
 
 struct treenode
 {
@@ -66,7 +67,28 @@ int main()
     n12->firstchild=n18;
 
     
+    std::time_t now = std::time(nullptr);
+    std::cout << "当前时间戳（秒）: " << now << std::endl;
+    // 转换为本地时间
+    std::tm* local_time = std::localtime(&now);
+    char time_str[100];
+    std::strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", local_time);
+    std::cout << "本地时间: " << time_str << std::endl;
+
     traverse(n1);
+    cout << endl;
+
+    std::time_t now1 = std::time(nullptr);
+    std::cout << "当前时间戳（秒）: " << now1 << std::endl;
+    // 转换为本地时间
+    std::tm* local_time1 = std::localtime(&now1);
+    char time_str1[100];
+    std::strftime(time_str1, sizeof(time_str1), "%Y-%m-%d %H:%M:%S", local_time1);
+    std::cout << "本地时间: " << time_str1 << std::endl;
+
+    
+
+    
 
     return 0;
 }
