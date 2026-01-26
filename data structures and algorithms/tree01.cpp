@@ -1,3 +1,4 @@
+//normal tree
 using namespace std;
 #include<iostream>
 #include<ctime>
@@ -9,7 +10,8 @@ struct treenode
     treenode *nextsibling;
 };
 
-void traverse(treenode *rootnode)
+//先序遍历:rootnode->left child->right child
+void preordertraverse(treenode *rootnode)
 {
     if(rootnode==nullptr)
     {
@@ -21,15 +23,24 @@ void traverse(treenode *rootnode)
 
     while(child!=nullptr)
     {
-        traverse(child);
+        preordertraverse(child);
         child=child->nextsibling;
     }
 }
+//后序遍历
+void postordertraverse(treenode *rootnode)
+{
+
+}
+//中序遍历
+
+//层次遍历
 
 
 int main()
 {
-    void traverse(treenode *);
+    void preordertraverse(treenode *);
+    void postordertraverse(treenode *);
 
     //treenode *rootnode=nullptr;
     treenode *n1=new treenode{1,nullptr,nullptr},*n2=new treenode{2,nullptr,nullptr},*n3=new treenode{3,nullptr,nullptr},
@@ -66,29 +77,13 @@ int main()
 
     n12->firstchild=n18;
 
-    
-    std::time_t now = std::time(nullptr);
-    std::cout << "当前时间戳（秒）: " << now << std::endl;
-    // 转换为本地时间
-    std::tm* local_time = std::localtime(&now);
-    char time_str[100];
-    std::strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", local_time);
-    std::cout << "本地时间: " << time_str << std::endl;
 
-    traverse(n1);
-    cout << endl;
+    preordertraverse(n1);
+    cout << endl << endl;
 
-    std::time_t now1 = std::time(nullptr);
-    std::cout << "当前时间戳（秒）: " << now1 << std::endl;
-    // 转换为本地时间
-    std::tm* local_time1 = std::localtime(&now1);
-    char time_str1[100];
-    std::strftime(time_str1, sizeof(time_str1), "%Y-%m-%d %H:%M:%S", local_time1);
-    std::cout << "本地时间: " << time_str1 << std::endl;
+    postordertraverse(n1);
+    cout << endl << endl;
 
     
-
-    
-
     return 0;
 }

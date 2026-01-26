@@ -7,10 +7,10 @@ struct treenode
     treenode *firstchild;
     treenode *nextsibling;
 };
-
-void traverse(treenode *rootnode)
+//先序
+void preordertraverse(treenode *rootnode)
 {
-     if(rootnode==nullptr)
+    if(rootnode==nullptr)
     {
         return;
     }
@@ -20,15 +20,32 @@ void traverse(treenode *rootnode)
 
     while(child!=nullptr)
     {
-        traverse(child);
+        preordertraverse(child);
         child=child->nextsibling;
     }
 }
+//后序
+void postordertraverse(treenode *rootnode)
+{
+    if(rootnode==nullptr)
+    {
+        return;
+    }
 
+    treenode *child=rootnode->firstchild;
+    cout << rootnode->data << " ";
+
+    while(child!=nullptr)
+    {
+        postordertraverse(child);
+        child=child->nextsibling;
+        cout << child->data << " ";
+    }
+}
 
 int main()
 {
-    void traverse(treenode *);
+    void preordertraverse(treenode *);
 
     //treenode *rootnode=nullptr;
     treenode *n1=new treenode{1,nullptr,nullptr},*n2=new treenode{2,nullptr,nullptr},*n3=new treenode{3,nullptr,nullptr},
@@ -39,40 +56,32 @@ int main()
              *n16=new treenode{16,nullptr,nullptr},*n17=new treenode{17,nullptr,nullptr},*n18=new treenode{18,nullptr,nullptr};
 
     //2
-    n2=n1->firstchild;
-    n3=n2->nextsibling;
-
+    n1->firstchild=n2;    n2->nextsibling=n3;
 
     //3
-    n4=n2->firstchild;
-    n5=n4->nextsibling;
+    n2->firstchild=n4;    n4->nextsibling=n5;
 
-    n6=n3->firstchild;
-    n7=n6->nextsibling;
-
+    n3->firstchild=n6;    n6->nextsibling=n7;
 
     //4
-    n8=n4->firstchild;
-    n9=n8->nextsibling;
+    n4->firstchild=n8;    n8->nextsibling=n9;
 
-    n10=n5->firstchild;
-    n11=n10->nextsibling;
+    n5->firstchild=n10;    n10->nextsibling=n11;
 
-    n12=n6->firstchild;
-
+    n6->firstchild=n12;
 
     //5
-    n13=n8->firstchild;
+    n8->firstchild=n13;
 
-    n14=n9->firstchild;
-    n15=n14->nextsibling;
+    n9->firstchild=n14;    n14->nextsibling=n15;
 
-    n16=n10->firstchild;
-    n17=n16->nextsibling;
+    n10->firstchild=n16;    n16->nextsibling=n17;
 
-    n18=n12->firstchild;
+    n12->firstchild=n18;
 
-    traverse(n1);
+
+    //preordertraverse(n1);
+    cout << endl;
 
     return 0;
 }
