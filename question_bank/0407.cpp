@@ -9,18 +9,16 @@ int main(void)
     int flag=0;
     for(int i=begin;i<=end;i++)
     {
-        while(1)
+        int tmp=i;
+        while(i>0)
         {
-            if(i==0)
-            {
-                break;
-            }
             if(i%10==2)
             {
                 flag++;
             }
             i/=10;
         }
+        i=tmp;
     }
 
     cout << flag;
