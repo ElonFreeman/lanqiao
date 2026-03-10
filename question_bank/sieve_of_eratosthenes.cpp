@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void sieve_of_eratosthenes(int end)
+vector<int> sieve_of_eratosthenes(int end)
 {
     vector<bool> isprime(end+1,true);  //marker set intalized as true
     isprime.at(0)=isprime.at(1)=false;  //zero and one is not prime  
@@ -17,15 +17,16 @@ void sieve_of_eratosthenes(int end)
         }
     }
 
+    vector<int> primes;
     for(int p=0;p<=end;p++)  //scan the nums and output
     {
         if(isprime.at(p))
         {
-            cout << p << ' ';
+            primes.push_back(p);
         }
     }
 
-    //return isprime;
+    return primes;
 }
 
 vector<long long> traildivision(long long num)  //basic tail divi
