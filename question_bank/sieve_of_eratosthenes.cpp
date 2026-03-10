@@ -1,38 +1,61 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<bool> sieve_of_eratosthenes(int begin,int end)
+void sieve_of_eratosthenes(int end)
 {
-    vector<bool> isprime(end-begin+1,true);
-    if(begin<2)
-    {
-        isprime.at(0)=isprime.at(1)=false;
-        begin=2;
-    }
+    vector<bool> isprime(end+1,true);  //marker set intalized as true
+    isprime.at(0)=isprime.at(1)=false;  //zero and one is not prime  
     
-    for(int p=begin;p*p<=end;p++)  //p:origin nums
+    for(int p=2;p*p<=end;p++)  //p:origin nums
     {
-        if(isprime.at(p))
+        if(isprime.at(p))  //not deleted nums that is prime
         {
-            for(int i=p*p;i<=end;i++)  //i:marker
+            for(int i=p*p;i<=end;i+=p)  //i:multiples
             {
-                isprime.at(i)=false;
+                isprime.at(i)=false;  //delete the multiples
             }
         }
     }
 
-    return isprime;
+    for(int p=0;p<=end;p++)  //scan the nums and output
+    {
+        if(isprime.at(p))
+        {
+            cout << p << ' ';
+        }
+    }
+
+    //return isprime;
+}
+
+vector<long long> traildivision(long long num)  //basic tail divi
+{
+    vector<long long> factors;
+    
+    while(num%2==0)  //process even factor
+    {
+        factors.push_back(2);
+        num/=2;
+    }
+
+    for(int i=3;i<=sqrt(num);i+=2)  //process odd factor
+    {
+        while(num%i==0)
+        {
+            factors.push_back(i);
+            num/=i;
+        }
+    }
+
+    return factors;
 }
 
 int main(void)
 {
     vector<int> arr;
-    int begin=0,end=30;
-    /*for(int i=begin;i<=end;i++)
-    {
-        arr.push_back(i);
-    }*/
-
+    int begin=2,end=30;
     
+    sieve_of_eratosthenes(end);
+
     return 0;
 }
