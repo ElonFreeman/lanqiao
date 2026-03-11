@@ -29,7 +29,7 @@ vector<int> sieve_of_eratosthenes(int end)
     return primes;
 }
 
-vector<long long> traildivision(long long num)  //basic tail divi
+vector<long long> trail_division(long long num)  //basic tail divi
 {
     vector<long long> factors;
     
@@ -56,7 +56,12 @@ int main(void)
     vector<int> arr;
     int begin=2,end=30;
     
-    sieve_of_eratosthenes(end);
+    vector<int> primes=sieve_of_eratosthenes(end);
+
+    for(int i=0;i<(primes.end()-primes.begin());i++)
+    {
+        cout << primes.at(i) << ' ';
+    }
 
     return 0;
 }
