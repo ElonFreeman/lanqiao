@@ -61,7 +61,7 @@ int main(void)
 {
     int num=100;
 
-    //basical_trail_division(num);
+    basical_trail_division(num);
     sieve_of_era(num);
 
     return 0;
