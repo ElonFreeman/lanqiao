@@ -1,11 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-long ten_Exponentiation(int )
-{
-    return 
-}
-
 int main(void)
 {
     /*int n=0,q=0;  //n:num of books;q:num of readers
@@ -31,7 +26,7 @@ int main(void)
         do
         {
             int tmp_code=codes.at(code);
-            tmp_code=tmp_code%pow(10,readers_code_len[reader]);
+            tmp_code=tmp_code%(int)pow(10,readers_code_len[reader]);
             if(readers_code.at(reader)==tmp_code)
             {
                 flag=1;
