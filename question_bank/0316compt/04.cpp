@@ -3,78 +3,6 @@ using namespace std;
 
 int main(void)
 {
-    int n=0;
-    cin >> n;
-    vector<int> arr(n+1);
-    for(int &traverse:arr)
-    {
-        cin >> traverse;
-    }
-
-    for(size_t i=0,j=n;i<size(arr);i++,j--)
-    {
-        if(arr.at(i)>0)
-        {
-            if(i==0)
-            {
-                cout << arr.at(i) << "x^" << j;
-                continue;
-            }
-            if(j==0)
-            {
-                cout << '+' << arr.at(i);
-                continue;
-            }
-            if(abs(arr.at(i))==1)
-            {
-                cout << '+'<< "x^" << j;
-                continue;
-            }
-            if(abs(arr.at(i))==1&&abs(arr.at(i))==1)
-            {
-                cout << "x^" << j;
-                continue;
-            }
-            cout << '+' << arr.at(i) << "x^" << j;
-        }
-            
-        else if(arr.at(i)==0)
-            continue;
-        else if(arr.at(i)<0)
-        {
-            if(i==0)
-            {
-                cout << arr.at(i) << "x^" << j;
-                continue;
-            }
-            if(j==0)
-            {
-                cout << '+' << arr.at(i);
-                continue;
-            }
-            if(abs(arr.at(i))==1)
-            {
-                cout << '-'<< "x^" << j;
-                continue;
-            }
-            if(abs(arr.at(i))==1&&abs(arr.at(i))==1)
-            {
-                cout <<'-' << "x^" << j;
-                continue;
-            }
-            cout << arr.at(i) << "x^" << j;
-        }
-            
-    }
-
-    return 0;
-}
-
-/*#include<bits/stdc++.h>
-using namespace std;
-
-int main(void)
-{
     int n = 0;
     cin >> n;
     vector<int> arr(n + 1);
@@ -131,4 +59,4 @@ int main(void)
     }
     
     return 0;
-}*/
+}
