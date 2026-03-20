@@ -7,20 +7,20 @@ int main(void)
     cin >> n;
     vector<int> arr(n + 1);
     
-    // 输入系数
+    //input coefficient
     for(int i = 0; i <= n; i++)
     {
         cin >> arr[i];
     }
     
-    bool firstTerm = true;  // 标记是否为第一项
+    bool firstTerm = true;  //mark first term
     
     for(int i = 0; i <= n; i++)
     {
         int coeff = arr[i];
         int power = n - i;
         
-        if(coeff == 0) continue;  // 系数为0跳过
+        if(coeff == 0) continue;  //if coe is zero ,skip
         
         // 处理符号
         if(firstTerm)
