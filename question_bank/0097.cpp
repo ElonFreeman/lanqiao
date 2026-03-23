@@ -4,7 +4,7 @@ using namespace std;
 int main(void)
 {
     long n=5,k=2;
-    scanf_s("%d%d",&n,&k);
+    scanf("%d%d",&n,&k);
     vector<long> arr(n);
     for(long &num:arr)
     {

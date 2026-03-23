@@ -7,7 +7,7 @@ int main(void)
     cin >> n >> k;
     vector<vector<int>> choco(n,vector<int>(2));  /*0:H,1:W*/
 
-    cout << "input:" <<endl;
+    //cout << "input:" <<endl;
     for(int i=0;i<n;i++)
     {
         cin >> choco.at(i)[0] >> choco.at(i)[1];
