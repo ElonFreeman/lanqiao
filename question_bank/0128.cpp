@@ -5,11 +5,11 @@ int main(void)
 {
     int n=0;
     cin >> n;
-    int max=n;
-    for(int num=n-1;num>0;num--)
+    int max=0;
+    for(int num=1;num<=n;num++)
     {
         int tnum=num;
-        while(tnum!=1)
+        while(tnum!=1 && tnum>num-1)
         {
             if(tnum%2==0)
             {
