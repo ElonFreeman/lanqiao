@@ -21,9 +21,9 @@ int main(void)
 
     int average=sum/k;
     int max=average;
-    while(((int)sqrt(max)*10)%10!=0)
+    while((int)(sqrt(max)*10)%10!=0)
     {
-        max++;
+        max--;
     }
 
     cout << (int)sqrt(max) << endl;
