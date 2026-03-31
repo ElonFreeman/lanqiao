@@ -35,6 +35,10 @@ int main(void)
             }
         }
 
+        /*单独处理最后一段*/
+        next.push_back(counter + '0');  //counter已累加完成
+        next.push_back(last.back());  //输入最后的的数
+
         for(char traverse:next)
         {
             cout << traverse;
