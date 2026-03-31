@@ -22,9 +22,7 @@ int main(void)
         }
     }
 
-   
     cout << counter;
     
-
     return 0;
 }
