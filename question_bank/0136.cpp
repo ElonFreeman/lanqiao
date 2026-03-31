@@ -14,36 +14,41 @@ int main(void)
 
     for(int time=0;time<times;time++)
     {
-        int counter=1,i=1;
-        while(i<size(last))  //process
+        int counter=1,nexti=0;
+        for(int i=1;i<size(last);i++)  //process
         {
             
             if(last.at(i)==last.at(i-1))
             {
                 counter++;
-                i++;
                 continue;
             }
             
-            next.push_back(counter+48);
-            next.push_back(last.at(i-1));
-            counter=1;
-            i++;
-            for(char traverse:next)
+            else
             {
-                cout << traverse;
+                next.push_back(counter+'0');
+                next.push_back(last.at(i-1));
+                //nexti+=2;
+
+                counter=1;
+                
             }
-            cout << endl;
         }
+
+        for(char traverse:next)
+        {
+            cout << traverse;
+        }
+        cout << endl;
 
         last.clear();
         last=next;
         next.clear();
     }
 
-    for(char traverse:next)
+    //for(char traverse:next)
     {
-        cout << traverse;
+        //cout << traverse;
     }    
 
     return 0;
