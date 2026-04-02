@@ -39,20 +39,20 @@ int main(void)
         next.push_back(counter + '0');  //counter已累加完成
         next.push_back(last.back());  //输入最后的的数
 
-        for(char traverse:next)
+        /*for(char traverse:next)
         {
             cout << traverse;
         }
-        cout << endl;
+        cout << endl;*/
 
         last.clear();
         last=next;
         next.clear();
     }
 
-    //for(char traverse:next)
+    for(char traverse:last)
     {
-        //cout << traverse;
+        cout << traverse;
     }    
 
     return 0;
