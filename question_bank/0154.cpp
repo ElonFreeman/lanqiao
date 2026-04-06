@@ -12,8 +12,6 @@ void encrypt(string str)
     {
         cout << str_enc[i];
     }
-    
-
 }
 
 int main(void)
