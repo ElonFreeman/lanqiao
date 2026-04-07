@@ -3,48 +3,66 @@ using namespace std;
 
 int main(void)
 {
-    int n,m;cin >> n >> m;  //n:row,m:col
-    //int r,c;cin >> r >> c;
+    int row,col;cin >> row >> col;  //n:row,m:col
+    int pr,pc;cin >> pr >> pc;
 
-    vector<vector<int>> arr(n,vector<int>(m,0));
+    vector<vector<int>> arr(row,vector<int>(col,0));
     
-    int row=0,col=0;
-    for(int i=1;i<=n*m;i++)
-    {
-        if(col==m) col--;
-        if(col==-1) col++;
-        if(row==n) row--;
-        if(row==-1) row++;
+    int left=0,right=col-1,top=0,bottom=row-1;
+    
 
-        if(col<m && row==0)
+    /*生成螺旋矩阵*/
+    int num=1;
+    while(left<=right && top<=bottom)
+    {
+        /*left->right*/
+        for(int c=left;c<=right;c++)
         {
-            arr[row][col]=i;
-            col++;
+            arr[top][c]=num;
+            num++;
         }
-        else if(col==m-1 && row<n)
+        top++;
+
+        /*top->bottom*/
+        for(int r=top;r<=bottom;r++)
         {
-            arr[row][col]=i;
-            row++;
+            arr[r][right]=num;
+            num++;
         }
-        else if(col>0 && row==n-1)
+        right--;
+
+        /*right->left*/
+        if(left<=right)
         {
-            arr[row][col]=i;
-            col--;
+            for(int c=right;c>=left;c--)
+            {
+                arr[bottom][c]=num;
+                num++;
+            }
+            bottom--;
         }
-        else if(col==0 && row>0)
+
+        /*bottom->top*/
+        if(top<=bottom)
         {
-            arr[row][col]=i;
-            row--;
+            for(int r=bottom;r>=top;r--)
+            {
+                arr[r][left]=num;
+                num++;
+            }
+            left++;
         }
     }
 
-    for(int i=0;i<m;i++)
+    cout << arr[pr-1][pc-1];
+    /*for(int i=0;i<row;i++)
     {
-        for(int j=0;j<n;j++)
+        for(int j=0;j<col;j++)
         {
-            cout << arr[i][j];
+            cout << arr[i][j] << ' ';
         }
-    }
+        cout << endl;
+    }*/
 
     return 0;
 }
